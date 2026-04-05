@@ -4,6 +4,12 @@ A modern, responsive personal finance tracker built with **React** + **Vite** + 
 
 ---
 
+## 🌐 Live Demo
+
+**[👉 Click here to view the live app](https://personal-finance-dashboard-ofcr.onrender.com/)**
+
+---
+
 ## 🚀 Live Features
 
 - 📊 Dashboard with charts and insights
@@ -34,7 +40,7 @@ A modern, responsive personal finance tracker built with **React** + **Vite** + 
 ### 1. Clone the repository
 
 \```bash
-git clone https://github.com/your-username/personal-finance-dashboard.git
+git clone https://github.com/AadilTamboli01/personal-finance-dashboard.git
 cd personal-finance-dashboard
 \```
 
@@ -68,7 +74,7 @@ src/
 │   ├── Navbar.jsx               # Top navigation + dark mode toggle
 │   ├── Cards.jsx                # Balance / Income / Expense cards
 │   ├── Transactions.jsx         # Transaction table with filters
-│   ├── LineChartComponent.jsx   # Income vs Expense line chart
+│   ├── LineChartComponent.jsx   # Income vs Expense area chart
 │   └── PieChartComponent.jsx    # Category-wise spending pie chart
 │
 ├── Pages/
@@ -110,7 +116,7 @@ React Router v6 handles two pages:
 - **Summary Cards** — shows current Balance, Total Income, Total Expense
 - **Insights Panel** — top spending category, month-over-month trend (% change), total expenses
 - **Monthly Breakdown** — expense amount per month in a grid view
-- **Line Chart** — income vs expense trend over time (by date)
+- **Area Chart** — income vs expense trend grouped by month with gradient fills
 - **Pie Chart** — donut chart showing expense split by category with percentages
 
 ### 💸 Transactions Page
@@ -157,5 +163,6 @@ React Router v6 handles two pages:
 
 ## 👨‍💻 Author
 
+**Aadil Tamboli**  
 Built as part of a frontend assignment.  
 Feel free to fork, modify, and use!
