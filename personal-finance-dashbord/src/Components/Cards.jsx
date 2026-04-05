@@ -1,26 +1,32 @@
 
 
 
+
 import React from 'react';
 import { motion } from "framer-motion";
 
 const Cards = ({ balance, income, expense }) => {
   const cards = [
-    { title: "Balance", value: balance },
-    { title: "Income", value: income },
-    { title: "Expense", value: expense },
+    { title: "💰 Balance", value: balance, color: "text-blue-500" },
+    { title: "📈 Income", value: income, color: "text-green-500" },
+    { title: "📉 Expense", value: expense, color: "text-red-500" },
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-6">
       {cards.map((card, i) => (
         <motion.div
           key={i}
-          whileHover={{ scale: 1.05 }}
-          className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow transition-colors duration-300"
+          whileHover={{ scale: 1.03 }}
+          className="bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl shadow transition-colors duration-300"
         >
-          <h2 className="text-gray-500 dark:text-gray-400">{card.title}</h2>
-          <p className="text-xl font-bold dark:text-white">₹ {card.value}</p>
+          <h2 className="text-gray-500 dark:text-gray-400 text-sm">
+            {card.title}
+          </h2>
+
+          <p className={`text-2xl font-bold mt-1 ${card.color}`}>
+            ₹ {card.value.toLocaleString("en-IN")}
+          </p>
         </motion.div>
       ))}
     </div>

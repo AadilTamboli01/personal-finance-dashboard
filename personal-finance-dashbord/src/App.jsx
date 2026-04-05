@@ -1,5 +1,7 @@
 
 
+
+
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import Transactions from './Components/Transactions.jsx';
@@ -7,7 +9,6 @@ import mockData from './DB/mockdata.js';
 import Dashboard from './Pages/Dashboard.jsx';
 import Navbar from './Components/Navbar.jsx';
 import { ThemeProvider } from './useTheme.jsx';
-
 
 const App = () => {
   const [transactions, setTransactions] = useState(() => {
@@ -40,7 +41,7 @@ const App = () => {
 
   return (
     <ThemeProvider>
-      <div className="p-6 bg-gray-100 dark:bg-gray-950 min-h-screen transition-colors duration-300">
+      <div className="px-3 py-4 md:p-6 bg-gray-100 dark:bg-gray-950 min-h-screen transition-colors duration-300">
         <Navbar role={role} setRole={setRole} />
         <Routes>
           <Route
@@ -68,6 +69,6 @@ const App = () => {
       </div>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

@@ -1,5 +1,4 @@
 
-
 import React from "react";
 import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
@@ -21,43 +20,52 @@ const PieChartComponent = ({ transactions }) => {
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.4 }}
-      className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl p-5 rounded-2xl shadow-lg hover:shadow-2xl h-full flex flex-col transition-colors duration-300"
+      className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl p-4 md:p-5 rounded-2xl shadow-lg h-full flex flex-col transition-colors duration-300"
     >
       <div className="flex justify-between items-center mb-3">
-        <h2 className="text-lg font-bold text-gray-700 dark:text-white">🍕 Spending Breakdown</h2>
-        <span className="text-sm text-gray-500 dark:text-gray-400">₹ {total}</span>
+        <h2 className="text-base md:text-lg font-bold text-gray-700 dark:text-white">
+          🍕 Spending Breakdown
+        </h2>
+        <span className="text-sm text-gray-500 dark:text-gray-400">
+          ₹ {total.toLocaleString("en-IN")}
+        </span>
       </div>
 
-      <div className="relative w-full flex-1 min-h-[300px]">
+      <div className="relative w-full flex-1 min-h-[250px] md:min-h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
-            <Pie data={data} dataKey="value" innerRadius={60} outerRadius={90} paddingAngle={3} cornerRadius={8} animationDuration={800}>
+            <Pie
+              data={data}
+              dataKey="value"
+              innerRadius="40%"
+              outerRadius="65%"
+              paddingAngle={3}
+              cornerRadius={8}
+              animationDuration={800}
+            >
               {data.map((entry, index) => (
                 <Cell key={index} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
             <Tooltip
-              contentStyle={{
-                borderRadius: "10px",
-                backgroundColor: "#1F2937",
-                border: "none",
-                color: "#fff",
-              }}
+              contentStyle={{ borderRadius: "10px", backgroundColor: "#1F2937", border: "none", color: "#fff" }}
               formatter={(value, name) => {
                 const percent = total ? ((value / total) * 100).toFixed(1) : 0;
-                return [`₹ ${value} (${percent}%)`, name];
+                return [`₹ ${value.toLocaleString("en-IN")} (${percent}%)`, name];
               }}
             />
-            <Legend verticalAlign="bottom" />
+            <Legend verticalAlign="bottom" wrapperStyle={{ fontSize: "12px" }} />
           </PieChart>
         </ResponsiveContainer>
 
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="text-center">
-            <p className="text-gray-500 dark:text-gray-400 text-sm">Total Expense</p>
-            <p className="text-xl font-bold dark:text-white">₹ {total}</p>
+            <p className="text-gray-500 dark:text-gray-400 text-xs">Total</p>
+            <p className="text-base md:text-xl font-bold dark:text-white">
+              ₹ {total.toLocaleString("en-IN")}
+            </p>
           </div>
         </div>
       </div>
