@@ -6,7 +6,8 @@ A modern, responsive personal finance tracker built with **React** + **Vite** + 
 
 ## 🌐 Live Demo
 
-**[👉 Click here to view the live app](https://personal-finance-dashboard-ofcr.onrender.com/)**
+**[👉 Click here to view the live app](https://personal-finance-dashboard1.onrender.com/)**
+
 
 ---
 
